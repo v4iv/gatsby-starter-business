@@ -1,0 +1,39 @@
+{
+  "name": "gatsby-starter-business",
+  "description": "Gatsby Business Website Starter",
+  "version": "1.0.0",
+  "author": "Vaibhav Sharma",
+  "dependencies": {
+    "bulma": "^0.6.2",
+    "gatsby": "^1.9.241",
+    "gatsby-link": "^1.6.39",
+    "gatsby-plugin-manifest": "^1.0.15",
+    "gatsby-plugin-netlify-cms": "^1.0.12",
+    "gatsby-plugin-nprogress": "^1.0.14",
+    "gatsby-plugin-offline": "^1.0.15",
+    "gatsby-plugin-react-helmet": "^2.0.8",
+    "gatsby-plugin-sass": "^1.0.25",
+    "gatsby-plugin-sharp": "^1.6.41",
+    "gatsby-plugin-sitemap": "^1.2.20",
+    "gatsby-remark-images": "^1.5.60",
+    "gatsby-source-filesystem": "^1.5.27",
+    "gatsby-transformer-remark": "^1.7.39",
+    "gatsby-transformer-sharp": "^1.6.22",
+    "lodash": "^4.17.5",
+    "lodash-webpack-plugin": "^0.11.4",
+    "prop-types": "^15.6.1"
+  },
+  "license": "MIT",
+  "main": "n/a",
+  "scripts": {
+    "start": "npm run develop",
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "serve": "gatsby serve",
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  }
+}
