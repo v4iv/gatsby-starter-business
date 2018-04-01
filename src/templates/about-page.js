@@ -1,9 +1,10 @@
 /**
  * Created by vaibhav on 31/3/18
  */
-import React from 'react'
-import PropTypes from 'prop-types'
-import Content, {HTMLContent} from '../components/Content'
+import React from 'react';
+import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
+import Content, {HTMLContent} from '../components/Content';
 
 export const AboutPageTemplate = ({title, content, contentComponent}) => {
     const PageContent = contentComponent || Content
@@ -50,11 +51,17 @@ const AboutPage = ({data}) => {
     const {markdownRemark: post} = data;
 
     return (
-        <AboutPageTemplate
-            contentComponent={HTMLContent}
-            title={post.frontmatter.title}
-            content={post.html}
-        />
+        <div>
+            <Helmet>
+                <title>{post.frontmatter.meta_title}</title>
+                <meta name="description" content={post.frontmatter.meta_description}/>
+            </Helmet>
+            <AboutPageTemplate
+                contentComponent={HTMLContent}
+                title={post.frontmatter.title}
+                content={post.html}
+            />
+        </div>
     )
 };
 
@@ -70,6 +77,8 @@ export const aboutPageQuery = graphql`
       html
       frontmatter {
         title
+        meta_title
+        meta_description
       }
     }
   }

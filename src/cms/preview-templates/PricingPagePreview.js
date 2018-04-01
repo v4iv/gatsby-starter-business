@@ -11,8 +11,9 @@ const PricingPagePreivew = ({ entry, getAsset }) => {
 
     return (
         <PricingPageTemplate
-            image={entry.getIn(['data', 'image'])}
             title={entry.getIn(['data', 'title'])}
+            meta_title={entry.getIn(['data', 'meta_title'])}
+            meta_description={entry.getIn(['data', 'meta_description'])}
             pricing={{
                 heading: entry.getIn(['data', 'pricing', 'heading']),
                 description: entry.getIn(['data', 'pricing', 'description']),

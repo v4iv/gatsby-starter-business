@@ -1,33 +1,39 @@
 ---
 templateKey: pricing-page
 title: Pricing
-image: /img/products-full-width.jpg
+meta_title: Pricing | Gatsby Starter Business
+meta_description: >-
+  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
+  ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
+  venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
+  consectetur purus sit amet fermentum.
 pricing:
   description: >-
-    We make it easy to make great coffee a part of your life. Choose one of our
-    monthly subscription plans to receive great coffee at your doorstep each
-    month. Contact us about more details and payment info.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec porta justo justo, 
+    non semper odio cursus in. Curabitur ligula tortor, tristique non odio nec, imperdiet 
+    mattis leo. Vivamus aliquam rhoncus tortor vitae convallis. Aliquam non dui nibh. Nam 
+    a velit at enim sagittis pellentesque.
   heading: Monthly subscriptions
   plans:
-    - description: Perfect for the drinker who likes to enjoy 1-2 cups per day.
+    - description: Nulla faucibus, leo a condimentum aliquam, libero leo vehicula arcu
       items:
-        - 3 lbs of coffee per month
-        - Green or roasted beans"
-        - One or two varieties of beans"
+        - Lorem ipsum dolor sit amet
+        - consectetur adipiscing elit
+        - Nunc finibus sem a sem ultrices
       plan: Pro
       price: '50'
-    - description: 'Great for avid drinkers, java-loving couples and bigger crowds'
+    - description: Mauris vitae dolor eu mauris malesuada cursus.
       items:
-        - 6 lbs of coffee per month
-        - Green or roasted beans
-        - Up to 4 different varieties of beans
+        - eget sagittis magna tempor
+        - Quisque pulvinar lorem molestie
+        - Proin at sagittis ex
       plan: Enterprise
       price: '80'
-    - description: Want a few tiny batches from different varieties? Try our custom plan
+    - description: Praesent elit lectus, iaculis vel odio vitae, bibendum auctor lacus.
       items:
-        - Whatever you need
-        - Green or roasted beans
-        - Unlimited varieties
+        - Pellentesque luctus neque id mauris accumsan
+        - nec imperdiet justo eleifend
+        - Sed eget ornare orci
       plan: Custom
       price: '??'
 ---

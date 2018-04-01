@@ -18,6 +18,5 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - Offline Support
 
 ## TODO
-- Categories
 - Pagination
 - Search

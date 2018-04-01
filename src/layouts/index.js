@@ -13,6 +13,7 @@ const TemplateWrapper = ({children}) => (
     <div>
         <Helmet>
             <title>{config.siteTitle}</title>
+            <meta name="description" content={config.siteDescription}/>
         </Helmet>
         <NavBar/>
         <div>{children()}</div>

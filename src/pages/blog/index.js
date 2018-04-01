@@ -4,6 +4,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
+import Helmet from 'react-helmet'
+import Share from "../../components/Share";
 
 export default class BlogPage extends Component {
     render() {
@@ -12,6 +14,9 @@ export default class BlogPage extends Component {
 
         return (
             <div>
+                <Helmet>
+                    <title>Blog | Gatsby Starter Business</title>
+                </Helmet>
                 <section className="hero is-primary is-bold">
                     <div className="hero-body">
                         <div className="container">

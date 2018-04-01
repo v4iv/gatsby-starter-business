@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 const Pricing = ({ data }) => (
     <div className="columns">
         {data.map(price => (
-            <div key={price.plan} className="column">
+            <div key={price.plan} className="column" style={{border: '1px solid #eaecee'}}>
                 <section className="section">
                     <h4 className="has-text-centered has-text-weight-semibold">
                         {price.plan}
@@ -27,7 +27,7 @@ const Pricing = ({ data }) => (
             </div>
         ))}
     </div>
-)
+);
 
 Pricing.propTypes = {
     data: PropTypes.arrayOf(
@@ -38,6 +38,6 @@ Pricing.propTypes = {
             items: PropTypes.array,
         })
     ),
-}
+};
 
-export default Pricing
+export default Pricing;
