@@ -1,10 +1,7 @@
 /**
  * Created by vaibhav on 31/3/18
  */
-/* eslint import/no-unresolved:"off" */
-/* eslint import/extensions:"off" */
-/* eslint global-require:"off" */
-import React from "react";
+import React, {Component} from "react";
 import favicon from './favicon.ico'
 import {withPrefix} from 'gatsby-link';
 
@@ -19,7 +16,7 @@ if (process.env.NODE_ENV === "production") {
     }
 }
 
-export default class HTML extends React.Component {
+export default class HTML extends Component {
     render() {
         let css;
         if (process.env.NODE_ENV === "production") {
@@ -31,7 +28,7 @@ export default class HTML extends React.Component {
         );
         }
         return (
-            <html lang="en">
+            <html lang="en" className="has-navbar-fixed-top">
             <head>
             <meta charSet="utf-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>

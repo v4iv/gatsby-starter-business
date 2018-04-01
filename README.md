@@ -15,3 +15,9 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - Disqus Support
 - Google Tag Manager Support
 - Sass
+- Offline Support
+
+## TODO
+- Categories
+- Pagination
+- Search

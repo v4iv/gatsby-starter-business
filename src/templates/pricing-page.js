@@ -10,7 +10,7 @@ export const PricingPageTemplate = ({
                                         pricing,
                                     }) => (
     <div>
-        <section className="hero is-medium is-primary is-bold">
+        <section className="hero is-primary is-bold">
             <div className="hero-body">
                 <div className="container">
                     <div className="columns">
