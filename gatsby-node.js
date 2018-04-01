@@ -4,6 +4,8 @@
 const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+// const createPaginatedPages = require("gatsby-paginate");
+
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
     const { createPage } = boundActionCreators
@@ -86,3 +88,12 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
         })
     }
 };
+
+// createPaginatedPages({
+//     edges: result.data.posts.edges,
+//     createPage: createPage,
+//     pageTemplate: "src/templates/blog-page.js",
+//     pageLength: 5,
+//     pathPrefix: "blog",
+//     buildPath: (index, pathPrefix) => index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}` // This is optional and this is the default
+// }}

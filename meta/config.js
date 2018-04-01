@@ -2,10 +2,10 @@
  * Created by vaibhav on 31/3/18
  */
 module.exports = {
-    siteTitle: "Gatsby Business Starter", // Site title.
+    siteTitle: "Gatsby Starter Business", // Site title.
     siteTitleAlt: "Gatsby Business", // Alternative site title for SEO.
     siteLogo: "/logos/logo-512x512.png", // Logo used for SEO and manifest.
-    siteUrl: "https://gatsby-business-starter.netlify.com", // Domain of your website without pathPrefix.
+    siteUrl: "https://gatsby-starter-business.netlify.com", // Domain of your website without pathPrefix.
     pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-starter-business/.
     siteDescription: "Leverage Gatsby Business Starter for your Business.", // Website description used for RSS feeds/meta description tag.
     siteRss: "/rss.xml",
