@@ -124,7 +124,9 @@ module.exports = {
                     {
                         serialize(ctx) {
                             const rssMetadata = ctx.query.site.siteMetadata.rssMetadata;
-                            return ctx.query.allMarkdownRemark.edges.map(edge => ({
+                            return ctx.query.allMarkdownRemark.edges
+                                .filter(edge => edge.node.frontmatter.templateKey === 'article-page')
+                                .map(edge => ({
                                 categories: edge.node.frontmatter.tags,
                                 date: edge.node.frontmatter.date,
                                 title: edge.node.frontmatter.title,
@@ -143,11 +145,13 @@ module.exports = {
                               ) {
                                 edges {
                                   node {
-                                    excerpt
+                                    excerpt(pruneLength: 400)
                                     html
+                                    id
                                     fields { slug }
                                     frontmatter {
                                       title
+                                      templateKey
                                       cover
                                       date(formatString: "MMMM DD, YYYY")
                                       tags
