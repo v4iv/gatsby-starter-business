@@ -3,6 +3,8 @@
  */
 const config = require("./meta/config");
 
+const pathPrefix = config.pathPrefix === "/" ? "" : config.pathPrefix;
+
 module.exports = {
     siteMetadata: {
         title: config.siteTitle,
