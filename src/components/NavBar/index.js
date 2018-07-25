@@ -3,13 +3,14 @@
  */
 import React from 'react'
 import Link from 'gatsby-link'
+import config from '../../../meta/config.js'
 
 const NavBar = () => {
   return (
     <nav className='navbar is-fixed-top' aria-label='main navigation'>
       <div className='navbar-brand'>
         <Link to='/' className='navbar-item'>
-                    Gatsby Starter Business
+          {config.siteTitle}
         </Link>
         <button className='button navbar-burger' data-target='navMenu'>
           <span />
