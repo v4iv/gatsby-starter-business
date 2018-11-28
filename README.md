@@ -1,5 +1,5 @@
 # gatsby-starter-business
-A [Gatsby](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms).
+A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycms.org) powered generic business website starter based on [gatsby-starter-netlify-cms](https://github.com/AustinGreen/gatsby-starter-netlify-cms).
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
@@ -14,7 +14,12 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 * Progressive Web App & Offline Support
 * Tags and RSS Feed for Blog
 * Disqus and Share Support
+* Elastic-Lunr Search (NEW)
+* Pagination (NEW)
+* Easy Configuration using `config.js` file
+
+## Deployment
+<a href="https://app.netlify.com/start/deploy?repository=https://github.com/v4iv/gatsby-starter-business&amp;stack=cms"><img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify"></a>
 
 ## TODO
-- Pagination for Blog (gatsby-paginate)
-- Search (@andrew-codes/gatsby-plugin-elasticlunr-search)
+* Improve `README.md` (PRs are always welcome)

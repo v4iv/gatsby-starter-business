@@ -1,9 +1,6 @@
-/**
- * Created by vaibhav on 2/4/18
- */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { ContactPageTemplate } from '../../templates/contact-page'
+import ContactPageTemplate from '../../components/ContactPageTemplate'
 
 const ContactPagePreview = ({ entry, getAsset }) => {
   const entryContacts = entry.getIn(['data', 'contacts'])

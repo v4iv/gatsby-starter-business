@@ -1,6 +1,3 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import React from 'react'
 
 const NotFoundPage = () => (

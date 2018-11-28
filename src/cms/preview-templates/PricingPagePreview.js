@@ -1,9 +1,6 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { PricingPageTemplate } from '../../templates/pricing-page'
+import PricingPageTemplate from '../../components/PricingPageTemplate'
 
 const PricingPagePreivew = ({ entry, getAsset }) => {
   const entryPricingPlans = entry.getIn(['data', 'pricing', 'plans'])

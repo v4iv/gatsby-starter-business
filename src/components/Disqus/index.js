@@ -1,9 +1,6 @@
-/**
- * Created by vaibhav on 1/4/18
- */
 import React, {Component} from 'react'
 import ReactDisqusComments from 'react-disqus-comments'
-import config from '../../../meta/config'
+import config from '../../../data/config'
 
 class Disqus extends Component {
   constructor (props) {

@@ -1,9 +1,6 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import React from 'react'
 import PropTypes from 'prop-types'
-import {ArticleTemplate} from '../../templates/article-page'
+import ArticleTemplate from '../../components/ArticleTemplate'
 
 const ArticlePreview = ({entry, widgetFor}) => (
   <ArticleTemplate
