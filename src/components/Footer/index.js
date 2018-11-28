@@ -1,8 +1,5 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import React from 'react'
-import config from '../../../meta/config'
+import config from '../../../data/config'
 
 const Footer = () => {
   return (

@@ -1,8 +1,5 @@
-/**
- * Created by vaibhav on 2/4/18
- */
 import React from 'react'
-import Link from 'gatsby-link'
+import {Link} from 'gatsby'
 
 const PostCard = ({posts}) => {
   return (

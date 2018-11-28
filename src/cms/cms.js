@@ -1,6 +1,3 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import CMS from 'netlify-cms'
 
 import HomePagePreview from './preview-templates/HomePagePreview'

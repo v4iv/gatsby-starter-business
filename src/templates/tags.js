@@ -1,9 +1,6 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 import React, {Component} from 'react'
 import Helmet from 'react-helmet'
-import Link from 'gatsby-link'
+import {Link, graphql} from 'gatsby'
 
 class TagRoute extends Component {
   render () {
@@ -15,7 +12,7 @@ class TagRoute extends Component {
         </Link>
       </li>
     ))
-    const tag = this.props.pathContext.tag
+    const tag = this.props.pageContext.tag
     const title = this.props.data.site.siteMetadata.title
     const totalCount = this.props.data.allMarkdownRemark.totalCount
     const tagHeader = `${totalCount} post${

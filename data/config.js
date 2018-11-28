@@ -1,6 +1,3 @@
-/**
- * Created by vaibhav on 31/3/18
- */
 module.exports = {
   siteTitle: 'Gatsby Starter Business', // Site title.
   siteTitleAlt: 'Business', // Alternative site title for SEO.
