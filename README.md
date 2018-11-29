@@ -3,6 +3,13 @@ A [Gatsby v2](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycm
 
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
+## Getting Started
+Assuming you have the [Gatsby CLI](https://www.gatsbyjs.org/docs/) installed run:
+```shell
+gatsby new business https://github.com/v4iv/gatsby-starter-business.git 
+```
+
+
 ## Demo
 [Gatsby Starter Business](https://gatsby-starter-business.netlify.com)
 
