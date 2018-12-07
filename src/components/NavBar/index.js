@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, graphql, StaticQuery} from 'gatsby'
 import SearchBox from '../SearchBox'
 
-const NavBar = () => (
+const NavBar = ({toggleNavbar, isActive}) => (
   <StaticQuery
     query={graphql`
             query SearchIndexQuery {
@@ -17,13 +17,17 @@ const NavBar = () => (
           <Link to='/' className='navbar-item'>
             <strong>Gatsby Starter Business</strong>
           </Link>
-          <button className='button navbar-burger' data-target='navMenu'>
+          <button
+            className={`button navbar-burger ${isActive ? 'is-active' : ''}`}
+            data-target='navMenu'
+            onClick={toggleNavbar}
+          >
             <span />
             <span />
             <span />
           </button>
         </div>
-        <div className='navbar-menu' id='navMenu'>
+        <div className={`navbar-menu ${isActive ? 'is-active' : ''}`} id='navMenu'>
 
           <div className='navbar-end'>
             <SearchBox searchIndex={data.siteSearchIndex.index} />
@@ -42,7 +46,7 @@ const NavBar = () => (
                   <Link
                     className='button is-primary is-outlined'
                     to='/contact'>
-                                        Contact Us
+                            Contact Us
                   </Link>
                 </p>
               </div>
