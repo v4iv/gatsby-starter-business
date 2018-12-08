@@ -4,7 +4,7 @@ A [Gatsby v1](https://www.gatsbyjs.org/) and [Netlify CMS](https://www.netlifycm
 It follows the [JAMstack architecture](https://jamstack.org) by using Git as a single source of truth, and [Netlify](https://www.netlify.com) for continuous deployment, and CDN distribution.
 
 ## Demo
-[Gatsby Starter Business](https://gatsby-starter-business.netlify.com)
+[Gatsby Starter Business v1](https://gatsby-starter-business-v1.netlify.com)
 
 ## Features
 * Complete Business Website Suite - Home Page, About Page, Pricing Page, Contact Page and Blog
