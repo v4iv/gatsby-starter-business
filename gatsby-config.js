@@ -74,7 +74,7 @@ module.exports = {
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
         enableIdentityWidget: true,
-        htmlTitle: `TLCB Content Manager`,
+        htmlTitle: `Gatsby Starter Business Content Manager`,
       },
     },
     {
