@@ -7,7 +7,7 @@ import PostCard from '../components/PostCard'
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={props.url} className='button is-rounded'>
+      <Link to={`/blog${props.url}`} className='button is-rounded'>
         {props.text}
       </Link>
     )
@@ -51,7 +51,7 @@ export default class BlogPage extends Component {
                 <div className='column is-10 is-offset-1'>
                   <div className='section'>
                     <h1 className='title'>
-                                            Blog
+                      Blog
                     </h1>
                   </div>
                 </div>
