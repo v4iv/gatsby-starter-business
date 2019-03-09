@@ -8,7 +8,7 @@ const TagsPage = ({
 }) => (
   <div>
     <Helmet title={`Tags | ${title}`} />
-    <section className='hero is-primary is-bold'>
+    <section className='hero is-primary is-bold is-medium'>
       <div className='hero-body'>
         <div className='container'>
           <div className='columns'>

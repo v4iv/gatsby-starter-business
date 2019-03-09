@@ -16,6 +16,7 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 * Disqus and Share Support
 * Elastic-Lunr Search (NEW)
 * Pagination (NEW)
+* Contact Form (Netlify Forms)
 * Easy Configuration using `config.js` file
 
 ## Prerequisite
