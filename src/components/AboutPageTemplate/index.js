@@ -7,7 +7,7 @@ const AboutPageTemplate = ({title, content, contentComponent}) => {
 
   return (
     <div>
-      <section className='hero is-primary is-bold'>
+      <section className='hero is-primary is-bold is-medium'>
         <div className='hero-body'>
           <div className='container'>
             <div className='columns'>
