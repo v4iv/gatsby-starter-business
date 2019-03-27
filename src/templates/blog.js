@@ -3,6 +3,7 @@ import {Link} from 'gatsby'
 import config from '../../data/config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
+import Layout from '../components/Layout'
 
 const PaginationLink = props => {
   if (!props.test) {
@@ -36,7 +37,7 @@ export default class BlogPage extends Component {
     }
 
     return (
-      <div>
+      <Layout>
         <Helmet>
           <title>Blog | Gatsby Starter Business</title>
           {/* Schema.org tags */}
@@ -68,7 +69,7 @@ export default class BlogPage extends Component {
             </div>
           </section>
         </section>
-      </div>
+      </Layout>
     )
   }
 }
