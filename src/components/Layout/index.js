@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import Helmet from 'react-helmet'
-import NavBar from '../components/NavBar'
-import Footer from '../components/Footer'
-import '../assets/sass/styles.sass'
-import config from '../../data/config'
+import '../../assets/sass/styles.sass'
+import config from '../../../data/config'
+import NavBar from '../NavBar'
+import Footer from '../Footer'
 
-class TemplateWrapper extends Component {
+class Layout extends Component {
   constructor (props) {
     super(props)
     this.state = {isActive: false}
@@ -18,17 +18,17 @@ class TemplateWrapper extends Component {
 
   render () {
     return (
-      <div>
+      <Fragment>
         <Helmet>
           <title>{config.siteTitle}</title>
           <meta name='description' content={config.siteDescription} />
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
-        <div>{this.props.children}</div>
+        <Fragment>{this.props.children}</Fragment>
         <Footer />
-      </div>
+      </Fragment>
     )
   }
 }
 
-export default TemplateWrapper
+export default Layout

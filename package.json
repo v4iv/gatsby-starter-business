@@ -2,14 +2,15 @@
   "name": "gatsby-starter-business",
   "description": "Gatsby Business Website Starter",
   "author": "Vaibhav Sharma",
-  "version": "2.0.0",
+  "version": "2.1.1",
   "license": "MIT",
   "scripts": {
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "lint": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
+    "lint": "eslint --ext js,jsx --ignore-path .gitignore .",
+    "lint:fix": "eslint --ext js,jsx --ignore-path .gitignore . --fix",
     "clean": "rm -rf public/ .cache/"
   },
   "dependencies": {
@@ -19,7 +20,6 @@
     "gatsby-paginate": "^1.0.17",
     "gatsby-plugin-feed": "^2.0.11",
     "gatsby-plugin-google-tagmanager": "^2.0.8",
-    "gatsby-plugin-layout": "^1.0.11",
     "gatsby-plugin-manifest": "^2.0.13",
     "gatsby-plugin-netlify": "^2.0.7",
     "gatsby-plugin-netlify-cms": "^3.0.10",

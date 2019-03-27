@@ -6,44 +6,47 @@ import ArticleTemplate from '../components/ArticleTemplate'
 import SE0 from '../components/SEO'
 import Share from '../components/Share'
 import Disqus from '../components/Disqus'
+import Layout from '../components/Layout'
 
 const ArticlePage = ({data}) => {
   const {markdownRemark: post} = data
   return (
-    <section className='section'>
-      <SE0
-        title={post.frontmatter.title}
-        meta_title={post.frontmatter.meta_title}
-        meta_desc={post.frontmatter.meta_description}
-        cover={post.frontmatter.cover}
-        slug={post.fields.slug}
-      />
-      <div className='container content'>
-        <div className='columns'>
-          <div className='column is-10 is-offset-1'>
-            <ArticleTemplate
-              content={post.html}
-              contentComponent={HTMLContent}
-              cover={post.frontmatter.cover}
-              meta_title={post.frontmatter.meta_title}
-              meta_desc={post.frontmatter.meta_description}
-              tags={post.frontmatter.tags}
-              title={post.frontmatter.title}
-            />
-            <Share
-              title={post.frontmatter.title}
-              slug={post.fields.slug}
-              excerpt={post.frontmatter.meta_description}
-            />
-            <hr />
-            <Disqus
-              title={post.frontmatter.title}
-              slug={post.fields.slug}
-            />
+    <Layout>
+      <section className='section'>
+        <SE0
+          title={post.frontmatter.title}
+          meta_title={post.frontmatter.meta_title}
+          meta_desc={post.frontmatter.meta_description}
+          cover={post.frontmatter.cover}
+          slug={post.fields.slug}
+        />
+        <div className='container content'>
+          <div className='columns'>
+            <div className='column is-10 is-offset-1'>
+              <ArticleTemplate
+                content={post.html}
+                contentComponent={HTMLContent}
+                cover={post.frontmatter.cover}
+                meta_title={post.frontmatter.meta_title}
+                meta_desc={post.frontmatter.meta_description}
+                tags={post.frontmatter.tags}
+                title={post.frontmatter.title}
+              />
+              <Share
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+                excerpt={post.frontmatter.meta_description}
+              />
+              <hr />
+              <Disqus
+                title={post.frontmatter.title}
+                slug={post.fields.slug}
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </Layout>
   )
 }
 
