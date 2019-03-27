@@ -8,7 +8,7 @@ import Layout from '../components/Layout'
 const PaginationLink = props => {
   if (!props.test) {
     return (
-      <Link to={`/blog${props.url}`} className='button is-rounded'>
+      <Link to={`/blog/${props.url}`} className='button is-rounded'>
         {props.text}
       </Link>
     )
