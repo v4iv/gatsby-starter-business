@@ -1,5 +1,5 @@
 import React from 'react'
-import config from '../../../data/config'
+import config from '../../../config'
 import Helmet from 'react-helmet'
 
 const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {

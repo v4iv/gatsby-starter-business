@@ -17,7 +17,7 @@ import {
   LinkedinIcon,
   RedditIcon,
 } from 'react-share'
-import config from '../../../data/config'
+import config from '../../../config'
 import './styles.sass'
 
 class Share extends Component {
