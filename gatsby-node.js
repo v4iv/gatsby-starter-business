@@ -34,7 +34,7 @@ exports.createPages = ({actions, graphql}) => {
     }
 
     const postsAndPages = result.data.allMarkdownRemark.edges
-    
+
     // Post pages:
     let posts = []
     // Iterate through each post/page, putting all found posts (where templateKey = article-page) into `posts`
@@ -43,7 +43,7 @@ exports.createPages = ({actions, graphql}) => {
         posts = posts.concat(edge)
       }
     })
-    
+
     createPaginatedPages({
       edges: posts,
       createPage: createPage,

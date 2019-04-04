@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ReactDisqusComments from 'react-disqus-comments'
-import config from '../../../data/config'
+import config from '../../../config'
 
 class Disqus extends Component {
   constructor (props) {

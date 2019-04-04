@@ -1,5 +1,5 @@
 import React from 'react'
-import config from '../../../data/config'
+import config from '../../../config'
 
 const Footer = () => {
   return (
