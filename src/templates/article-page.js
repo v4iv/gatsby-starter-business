@@ -19,6 +19,7 @@ const ArticlePage = ({data}) => {
           meta_desc={post.frontmatter.meta_description}
           cover={post.frontmatter.cover}
           slug={post.fields.slug}
+          date={post.frontmatter.date}
         />
         <div className='container content'>
           <div className='columns'>
