@@ -61,7 +61,7 @@ Remove the .cache and public for a scratch compile.
 yarn clean
 ```
 
-## Configuratuion
+## Configuration
 To personalize and configure this Starter open `config.js` file and replace the default values.
 
 ```javascript
