@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import { navigate } from 'gatsby-link'
 import Helmet from 'react-helmet'
 import PropTypes from 'prop-types'
@@ -37,7 +37,7 @@ class ContactPageTemplate extends Component {
   }
 
   render () {
-    const {title, subtitle, meta_title, meta_description} = this.props
+    const { title, subtitle, meta_title, meta_description } = this.props
     return (
       <div>
         <Helmet>

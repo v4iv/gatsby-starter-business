@@ -6,8 +6,8 @@ import { HTMLContent } from '../components/Content'
 import AboutPageTemplate from '../components/AboutPageTemplate'
 import Layout from '../components/Layout'
 
-const AboutPage = ({data}) => {
-  const {markdownRemark: post} = data
+const AboutPage = ({ data }) => {
+  const { markdownRemark: post } = data
 
   return (
     <Layout>

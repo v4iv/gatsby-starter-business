@@ -17,8 +17,10 @@ module.exports = {
     },
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -44,8 +46,6 @@ module.exports = {
         name: 'images',
       },
     },
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -156,7 +156,7 @@ module.exports = {
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
                   guid: rssMetadata.site_url + edge.node.fields.slug,
-                  custom_elements: [{'content:encoded': edge.node.html}],
+                  custom_elements: [{ 'content:encoded': edge.node.html }],
                 }))
             },
             query: `
@@ -184,6 +184,7 @@ module.exports = {
                     }
                   `,
             output: config.siteRss,
+            title: config.siteTitle,
           },
         ],
       },

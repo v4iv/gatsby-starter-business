@@ -1,6 +1,6 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import {Link, graphql} from 'gatsby'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 class TagRoute extends Component {

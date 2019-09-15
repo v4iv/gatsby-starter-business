@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import favicon from './assets/img/favicon.ico'
 
 export default class HTML extends Component {
@@ -14,7 +14,7 @@ export default class HTML extends Component {
         <body>
           <div
             id='___gatsby'
-            dangerouslySetInnerHTML={{__html: this.props.body}}
+            dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
         </body>

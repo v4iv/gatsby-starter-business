@@ -29,8 +29,7 @@ const ArticleTemplate = ({
                 <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
               </li>
             ))
-            : null
-          }
+            : null}
         </ul>
       </div>
       <hr />

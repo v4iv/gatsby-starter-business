@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
 
-const HomePage = ({data}) => {
-  const {frontmatter} = data.markdownRemark
+const HomePage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
 
   return (
     <Layout>
