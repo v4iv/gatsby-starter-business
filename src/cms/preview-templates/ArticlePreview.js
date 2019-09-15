@@ -2,11 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ArticleTemplate from '../../components/ArticleTemplate'
 
-const ArticlePreview = ({entry, widgetFor}) => {
+const ArticlePreview = ({ entry, widgetFor }) => {
   return (
     <div className='container content'>
       <div className='columns'>
-        <div className='column is-10 is-offset-1'>    
+        <div className='column is-10 is-offset-1'>
           <ArticleTemplate
             content={widgetFor('body')}
             cover={entry.getIn(['data', 'cover'])}

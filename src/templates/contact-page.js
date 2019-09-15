@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {graphql} from 'gatsby'
+import { graphql } from 'gatsby'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Layout from '../components/Layout'
 
-const ContactPage = ({data}) => {
-  const {frontmatter} = data.markdownRemark
+const ContactPage = ({ data }) => {
+  const { frontmatter } = data.markdownRemark
   return (
     <Layout>
       <ContactPageTemplate

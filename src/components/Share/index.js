@@ -1,19 +1,15 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
   FacebookShareButton,
-  GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
   RedditShareButton,
   FacebookShareCount,
-  GooglePlusShareCount,
-  LinkedinShareCount,
   RedditShareCount,
   FacebookIcon,
   TwitterIcon,
   TelegramIcon,
-  GooglePlusIcon,
   LinkedinIcon,
   RedditIcon,
 } from 'react-share'
@@ -22,7 +18,7 @@ import './styles.sass'
 
 class Share extends Component {
   render () {
-    const {title, slug, excerpt, mobile} = this.props
+    const { title, slug, excerpt, mobile } = this.props
     const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
     const url = config.siteUrl + realPrefix + slug
 
@@ -40,12 +36,6 @@ class Share extends Component {
         <TwitterShareButton url={url} title={title}>
           <TwitterIcon round size={iconSize} />
         </TwitterShareButton>
-        <GooglePlusShareButton url={url}>
-          <GooglePlusIcon round size={iconSize} />
-          <GooglePlusShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </GooglePlusShareCount>
-        </GooglePlusShareButton>
         <FacebookShareButton url={url} quote={excerpt}>
           <FacebookIcon round size={iconSize} />
           <FacebookShareCount url={url}>
@@ -58,9 +48,6 @@ class Share extends Component {
           description={excerpt}
         >
           <LinkedinIcon round size={iconSize} />
-          <LinkedinShareCount url={url}>
-            {count => <div className='share-count'>{filter(count)}</div>}
-          </LinkedinShareCount>
         </LinkedinShareButton>
         <TelegramShareButton url={url}>
           <TelegramIcon round size={iconSize} />

@@ -1,5 +1,5 @@
-import React, {Component} from 'react'
-import {Link} from 'gatsby'
+import React, { Component } from 'react'
+import { Link } from 'gatsby'
 import config from '../../config'
 import Helmet from 'react-helmet'
 import PostCard from '../components/PostCard'
@@ -23,8 +23,8 @@ const PaginationLink = props => {
 
 export default class BlogPage extends Component {
   render () {
-    const {pageContext} = this.props
-    const {group, index, first, last} = pageContext
+    const { pageContext } = this.props
+    const { group, index, first, last } = pageContext
     const previousUrl = index - 1 === 1 ? '' : (index - 1).toString()
     const nextUrl = (index + 1).toString() + '/'
 
