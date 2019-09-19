@@ -56,7 +56,8 @@
     "react-dom": "^16.9.0",
     "react-helmet": "^5.2.1",
     "react-share": "^3.0.1",
-    "uglifyjs-webpack-plugin": "^2.2.0"
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "yup": "^0.27.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
