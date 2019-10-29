@@ -2,6 +2,7 @@ import React from 'react'
 import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
+import Image from '../Image'
 
 const ArticleTemplate = ({
   content,
@@ -18,7 +19,7 @@ const ArticleTemplate = ({
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
-      <img src={cover} alt={title} />
+      <Image src={cover} alt={title} />
       <PostContent content={content} />
       <div style={{ marginTop: `4rem` }}>
         <h4>Tags</h4>

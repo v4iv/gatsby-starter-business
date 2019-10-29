@@ -25,7 +25,7 @@ module.exports = {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/assets/img`,
+        path: `${__dirname}/static/img`,
         name: 'uploads',
       },
     },
@@ -174,7 +174,9 @@ module.exports = {
                             frontmatter {
                               title
                               templateKey
-                              cover
+                              cover {
+                                id
+                              }
                               date(formatString: "MMMM DD, YYYY")
                               tags
                             }
