@@ -18,15 +18,17 @@ class Layout extends Component {
 
   render () {
     return (
-      <>
+      <div id='layout-wrapper'>
         <Helmet>
           <title>{config.siteTitle}</title>
           <meta name='description' content={config.siteDescription} />
         </Helmet>
         <NavBar isActive={this.state.isActive} toggleNavbar={() => this.toggleNavbar()} />
-        <>{this.props.children}</>
+        <div id='content-wrapper'>
+          {this.props.children}
+        </div>
         <Footer />
-      </>
+      </div>
     )
   }
 }
