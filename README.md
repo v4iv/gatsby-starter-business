@@ -18,7 +18,6 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 * Pagination (NEW)
 * Contact Form (Netlify Forms)
 * Easy Configuration using `config.js` file
-* Image processing with gatsby-image
 
 ## Prerequisite
 * Node

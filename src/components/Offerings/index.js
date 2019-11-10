@@ -1,14 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Image from '../Image'
 
 const Offerings = ({ gridItems }) => (
   <div className='columns is-multiline'>
     {gridItems.map(item => (
-      <div key={item.image.id} className='column is-6' style={{ borderRadius: '5px' }}>
+      <div key={item.image} className='column is-6' style={{ borderRadius: '5px' }}>
         <section className='section'>
           <p className='has-text-centered'>
-            <Image alt='' src={item.image} />
+            <img alt='' src={item.image} />
           </p>
           <p>{item.text}</p>
         </section>
