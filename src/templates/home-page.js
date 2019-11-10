@@ -43,7 +43,14 @@ export const pageQuery = graphql`
         description
         offerings {
           blurbs {
-            image
+            image {
+              id
+              childImageSharp {
+                fixed(width: 240) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
             text
           }
         }
