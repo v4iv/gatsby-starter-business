@@ -2,24 +2,10 @@ import React from 'react'
 import config from '../../../config'
 import Helmet from 'react-helmet'
 
-const getSrcFromCover = ({ src = {} }) => {
-  const {
-    childImageSharp,
-  } = src
-
-  if (typeof src === 'string') return src
-  if (childImageSharp) {
-    const { fluid, fixed } = childImageSharp
-    if (fluid && fluid.src) return fluid.src
-    if (fixed && fixed.src) return fixed.src
-  }
-  return ''
-}
-
 const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
   const postURL = config.siteUrl + slug
   const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const image = config.siteUrl + realPrefix + getSrcFromCover(cover)
+  const image = config.siteUrl + realPrefix + cover
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -83,7 +69,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
       <title>{meta_title}</title>
       {/* General tags */}
       <meta name='description' content={meta_desc} />
-      <meta name='image' content={image} />
+      <meta name='image' content={cover} />
       {/* Schema.org tags */}
       <script type='application/ld+json'>
         {JSON.stringify(breadcrumbSchemaOrgJSONLD)}
