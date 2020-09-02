@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withPrefix } from 'gatsby'
 
 const Offerings = ({ gridItems }) => (
   <div className='columns is-multiline'>
@@ -7,7 +8,7 @@ const Offerings = ({ gridItems }) => (
       <div key={item.image} className='column is-6' style={{ borderRadius: '5px' }}>
         <section className='section'>
           <p className='has-text-centered'>
-            <img alt='' src={item.image} />
+            <img alt='' src={withPrefix(item.image)} />
           </p>
           <p>{item.text}</p>
         </section>
