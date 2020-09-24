@@ -4,16 +4,16 @@ import { graphql } from 'gatsby'
 import PricingPageTemplate from '../components/PricingPageTemplate'
 import Layout from '../components/Layout'
 
-const PricingPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const PricingPage = (props) => {
+  const { data: { markdownRemark: { frontmatter: {title, meta_title, meta_description, pricing } } } } = props
 
   return (
     <Layout>
       <PricingPageTemplate
-        title={frontmatter.title}
-        meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
-        pricing={frontmatter.pricing}
+        title={title}
+        meta_title={meta_title}
+        meta_description={meta_description}
+        pricing={pricing}
       />
     </Layout>
   )

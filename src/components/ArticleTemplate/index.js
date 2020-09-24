@@ -2,23 +2,21 @@ import React from 'react'
 import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
+import ProgressiveImageContainer from "../ProgressiveImageContainer";
 
-const ArticleTemplate = ({
-  content,
-  contentComponent,
-  cover,
-  meta_title,
-  meta_desc,
-  tags,
-  title,
-}) => {
+const ArticleTemplate = (props) => {
+  const { content, contentComponent, cover, meta_title, meta_desc, tags, title, } = props
   const PostContent = contentComponent || Content
+
   return (
     <div>
       <h1 className='title is-size-2 has-text-weight-bold is-bold-light'>
         {title}
       </h1>
-      <img src={cover} alt={title} />
+      <ProgressiveImageContainer
+        image={cover}
+        alt={title}
+      />
       <PostContent content={content} />
       <div style={{ marginTop: `4rem` }}>
         <h4>Tags</h4>

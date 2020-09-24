@@ -4,19 +4,19 @@ import { graphql } from 'gatsby'
 import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
 
-const HomePage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const HomePage = (props) => {
+  const { data: { markdownRemark: { frontmatter: {title, meta_title, meta_description, heading, description, offerings, testimonials} } } } = props
 
   return (
     <Layout>
       <HomePageTemplate
-        title={frontmatter.title}
-        meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
-        heading={frontmatter.heading}
-        description={frontmatter.description}
-        offerings={frontmatter.offerings}
-        testimonials={frontmatter.testimonials}
+        title={title}
+        meta_title={meta_title}
+        meta_description={meta_description}
+        heading={heading}
+        description={description}
+        offerings={offerings}
+        testimonials={testimonials}
       />
     </Layout>
   )
@@ -43,7 +43,14 @@ export const pageQuery = graphql`
         description
         offerings {
           blurbs {
-            image
+            image {
+                childImageSharp {
+                    fluid(maxWidth: 1075, quality: 72) {
+                        ...GatsbyImageSharpFluid
+                    }
+                }
+                publicURL
+            }
             text
           }
         }

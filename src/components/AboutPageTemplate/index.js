@@ -2,7 +2,8 @@ import React from 'react'
 import Content from '../Content'
 import PropTypes from 'prop-types'
 
-const AboutPageTemplate = ({ title, content, contentComponent }) => {
+const AboutPageTemplate = (props) => {
+  const { title, content, contentComponent } = props
   const PageContent = contentComponent || Content
 
   return (

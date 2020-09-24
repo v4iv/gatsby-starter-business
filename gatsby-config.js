@@ -25,7 +25,7 @@ module.exports = {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/assets/img`,
+        path: `${__dirname}/static/img`,
         name: 'uploads',
       },
     },
@@ -42,7 +42,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/assets/img`,
+        path: `${__dirname}/static/img`,
         name: 'images',
       },
     },
@@ -72,6 +72,7 @@ module.exports = {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
+        stylesPath: `${__dirname}/src/assets/sass/styles.sass`,
         enableIdentityWidget: true,
         htmlTitle: `Gatsby Starter Business Content Manager`,
       },
@@ -111,9 +112,15 @@ module.exports = {
             type: `image/png`,
           },
         ],
+        cache_busting_mode: 'none',
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/blog/*`, `/about`, `/pricing`, `/contact`, `/`],
+      },
+    },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -193,18 +200,42 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`, `tags`],
+        fields: [`title`, `tags`, `author`, `slug`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
+            author: node => node.frontmatter.author,
             tags: node => node.frontmatter.tags,
             slug: node => node.fields.slug,
+            templateKey: node => node.frontmatter.templateKey,
           },
         },
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        mergeSecurityHeaders: false,
+        headers: {
+          '/*.js': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/*.css': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/sw.js': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+          '/*': [
+            `X-Frame-Options: DENY`,
+            `X-XSS-Protection: 1; mode=block`,
+            `X-Content-Type-Options: nosniff`,
+            `Referrer-Policy: no-referrer-when-downgrade`,
+          ],
+        },
+      },
+    },
   ],
 }

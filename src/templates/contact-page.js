@@ -4,15 +4,16 @@ import { graphql } from 'gatsby'
 import ContactPageTemplate from '../components/ContactPageTemplate'
 import Layout from '../components/Layout'
 
-const ContactPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark
+const ContactPage = (props) => {
+  const { data: { markdownRemark: { frontmatter: {title, subtitle, meta_title, meta_description} } } } = props
+
   return (
     <Layout>
       <ContactPageTemplate
-        title={frontmatter.title}
-        subtitle={frontmatter.subtitle}
-        meta_title={frontmatter.meta_title}
-        meta_description={frontmatter.meta_description}
+        title={title}
+        subtitle={subtitle}
+        meta_title={meta_title}
+        meta_description={meta_description}
       />
     </Layout>
   )

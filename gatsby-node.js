@@ -3,6 +3,44 @@ const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const createPaginatedPages = require('gatsby-paginate')
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
+  let slug
+
+  if (node.internal.type === `MarkdownRemark`) {
+    const fileNode = getNode(node.parent)
+    const parsedFilePath = path.parse(fileNode.relativePath)
+
+    if (
+      Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
+      Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
+    ) {
+      slug = `/${_.kebabCase(node.frontmatter.title)}`
+    } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
+    } else if (parsedFilePath.dir === '') {
+      slug = `/${parsedFilePath.name}/`
+    } else {
+      slug = `/${parsedFilePath.dir}/`
+    }
+
+    if (Object.prototype.hasOwnProperty.call(node, 'frontmatter')) {
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug') && Object.prototype.hasOwnProperty.call(node.frontmatter, 'cover'))
+      {
+        slug = `/blog/${_.kebabCase(node.frontmatter.slug)}`
+      } else if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')) {
+        slug = `/${_.kebabCase(node.frontmatter.slug)}`
+      }
+    }
+
+    createNodeField({
+      name: `slug`,
+      node,
+      value: slug,
+    })
+  }
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
@@ -18,7 +56,18 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               title
-              cover
+              cover {
+                childImageSharp{
+                  fluid (maxWidth:500, quality:50){
+                    src
+                    srcSet
+                    aspectRatio
+                    sizes
+                    base64
+                  }
+                }
+                publicURL
+              }
               tags
               templateKey
               date(formatString: "MMMM DD, YYYY")
@@ -91,17 +140,4 @@ exports.createPages = ({ actions, graphql }) => {
       })
     })
   })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode })
-    createNodeField({
-      name: `slug`,
-      node,
-      value,
-    })
-  }
 }

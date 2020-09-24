@@ -2,6 +2,9 @@ backend:
   name: git-gateway
   branch: master
 
+site_url: https://gatsby-business-starter.netlify.app
+display_url: https://gatsby-business-starter.netlify.app
+logo_url: https://gatsby-business-starter.netlify.app/icons/icon-512x512.png
 publish_mode: editorial_workflow
 media_folder: static/img
 public_folder: /img

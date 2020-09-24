@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const PostCard = ({ posts }) => {
+const PostCard = (props) => {
+  const { posts } = props
+
   return (
     <div className='container'>
       {posts
