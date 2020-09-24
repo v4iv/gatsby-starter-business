@@ -159,6 +159,7 @@ module.exports = {
                   categories: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
                   title: edge.node.frontmatter.title,
+                  image: edge.node.frontmatter.cover,
                   description: edge.node.excerpt,
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
@@ -181,7 +182,9 @@ module.exports = {
                             frontmatter {
                               title
                               templateKey
-                              cover
+                              cover {
+                                publicURL
+                              }
                               date(formatString: "MMMM DD, YYYY")
                               tags
                             }
