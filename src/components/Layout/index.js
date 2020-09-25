@@ -6,13 +6,12 @@ import NavBar from '../NavBar'
 import Footer from '../Footer'
 
 const Layout = (props) => {
-
   return (
     <>
       <Helmet
         htmlAttributes={{
           lang: `en`,
-          class: `has-navbar-fixed-top`
+          class: `has-navbar-fixed-top`,
         }}
         title={config.siteTitle}
         meta={[
@@ -58,7 +57,7 @@ const Layout = (props) => {
           },
         ]}
       />
-      <NavBar/>
+      <NavBar />
       <>{props.children}</>
       <Footer copyright={config.copyright} />
     </>

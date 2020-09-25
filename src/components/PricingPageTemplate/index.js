@@ -4,13 +4,13 @@ import Pricing from '../Pricing'
 import PropTypes from 'prop-types'
 
 const PricingPageTemplate = (props) => {
-  const { title, meta_title, meta_description, pricing, } = props
-  
+  const { title, meta_title, meta_description, pricing } = props
+
   return (
     <div>
       <Helmet>
         <title>{meta_title}</title>
-        <meta name='description' content={meta_description}/>
+        <meta name='description' content={meta_description} />
       </Helmet>
       <section className='hero is-primary is-bold is-medium'>
         <div className='hero-body'>
@@ -37,7 +37,7 @@ const PricingPageTemplate = (props) => {
                     {pricing.heading}
                   </h2>
                   <p className='is-size-5'>{pricing.description}</p>
-                  <Pricing data={pricing.plans}/>
+                  <Pricing data={pricing.plans} />
                 </div>
               </div>
             </div>
@@ -45,7 +45,7 @@ const PricingPageTemplate = (props) => {
         </div>
       </section>
     </div>
-  );
+  )
 }
 PricingPageTemplate.propTypes = {
   title: PropTypes.string,

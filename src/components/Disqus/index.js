@@ -1,5 +1,5 @@
-import React from "react";
-import ReactDisqusComments from "react-disqus-comments";
+import React from 'react'
+import ReactDisqusComments from 'react-disqus-comments'
 
 const Disqus = (props) => {
   const { title, slug, siteUrl, disqusShortname } = props

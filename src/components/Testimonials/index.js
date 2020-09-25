@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Testimonials = (props) => {
-  const { testimonials }= props
+  const { testimonials } = props
 
   return (
     <div>
@@ -10,20 +10,20 @@ const Testimonials = (props) => {
         <article className='message' key={idx}>
           <div className='message-body'>
             {testimonial.quote}
-            <br/>
+            <br />
             <cite> – {testimonial.author}</cite>
           </div>
         </article>
       ))}
     </div>
-  );
+  )
 }
 Testimonials.propTypes = {
   testimonials: PropTypes.arrayOf(
     PropTypes.shape({
       quote: PropTypes.string,
       author: PropTypes.string,
-    })
+    }),
   ),
 }
 

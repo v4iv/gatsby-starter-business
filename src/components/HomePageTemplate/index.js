@@ -5,13 +5,13 @@ import Testimonials from '../Testimonials'
 import PropTypes from 'prop-types'
 
 const HomePageTemplate = (props) => {
-  const { title, heading, description, offerings, meta_title, meta_description, testimonials, } = props
+  const { title, heading, description, offerings, meta_title, meta_description, testimonials } = props
 
   return (
     <div>
       <Helmet>
         <title>{meta_title}</title>
-        <meta name='description' content={meta_description}/>
+        <meta name='description' content={meta_description} />
       </Helmet>
       <section className='hero is-primary is-bold is-medium'>
         <div className='hero-body'>
@@ -41,9 +41,9 @@ const HomePageTemplate = (props) => {
                     </h3>
                     <p>{description}</p>
                   </div>
-                  <Offerings gridItems={offerings.blurbs}/>
+                  <Offerings gridItems={offerings.blurbs} />
                   <h2 className='has-text-weight-semibold is-size-2'>Testimonials</h2>
-                  <Testimonials testimonials={testimonials}/>
+                  <Testimonials testimonials={testimonials} />
                 </div>
               </div>
             </div>
@@ -51,7 +51,7 @@ const HomePageTemplate = (props) => {
         </div>
       </section>
     </div>
-  );
+  )
 }
 HomePageTemplate.propTypes = {
   title: PropTypes.string,

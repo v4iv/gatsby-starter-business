@@ -5,11 +5,11 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../../components/Layout'
 
 const TagsPage = (props) => {
-  const { data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } }, } = props
+  const { data: { allMarkdownRemark: { group }, site: { siteMetadata: { title } } } } = props
 
   return (
     <Layout>
-      <Helmet title={`Tags | ${title}`}/>
+      <Helmet title={`Tags | ${title}`} />
       <section className='hero is-primary is-bold is-medium'>
         <div className='hero-body'>
           <div className='container'>
@@ -30,7 +30,7 @@ const TagsPage = (props) => {
           <div className='columns'>
             <div
               className='column is-10 is-offset-1'
-              style={{ marginBottom: "6rem" }}
+              style={{ marginBottom: '6rem' }}
             >
               <ul className='taglist'>
                 {group.map(tag => (
@@ -46,7 +46,7 @@ const TagsPage = (props) => {
         </div>
       </section>
     </Layout>
-  );
+  )
 }
 export default TagsPage
 

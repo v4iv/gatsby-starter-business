@@ -5,7 +5,7 @@ import PricingPageTemplate from '../components/PricingPageTemplate'
 import Layout from '../components/Layout'
 
 const PricingPage = (props) => {
-  const { data: { markdownRemark: { frontmatter: {title, meta_title, meta_description, pricing } } } } = props
+  const { data: { markdownRemark: { frontmatter: { title, meta_title, meta_description, pricing } } } } = props
 
   return (
     <Layout>

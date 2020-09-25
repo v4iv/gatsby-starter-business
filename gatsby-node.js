@@ -1,6 +1,5 @@
 const _ = require('lodash')
 const path = require('path')
-const pathPrefix = require('./config').pathPrefix
 const createPaginatedPages = require('gatsby-paginate')
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
@@ -11,25 +10,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
     const fileNode = getNode(node.parent)
     const parsedFilePath = path.parse(fileNode.relativePath)
 
-    if (
-      Object.prototype.hasOwnProperty.call(node, 'frontmatter') &&
-      Object.prototype.hasOwnProperty.call(node.frontmatter, 'title')
-    ) {
-      slug = `/${_.kebabCase(node.frontmatter.title)}`
-    } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
-      slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
-    } else if (parsedFilePath.dir === '') {
-      slug = `/${parsedFilePath.name}/`
-    } else {
-      slug = `/${parsedFilePath.dir}/`
-    }
-
     if (Object.prototype.hasOwnProperty.call(node, 'frontmatter')) {
-      if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug') && Object.prototype.hasOwnProperty.call(node.frontmatter, 'cover'))
-      {
+      if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug') && Object.prototype.hasOwnProperty.call(node.frontmatter, 'cover')) {
         slug = `/blog/${_.kebabCase(node.frontmatter.slug)}`
       } else if (Object.prototype.hasOwnProperty.call(node.frontmatter, 'slug')) {
         slug = `/${_.kebabCase(node.frontmatter.slug)}`
+      } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
+      } else if (parsedFilePath.dir === '') {
+        slug = `/`
+      } else {
+        slug = `/${parsedFilePath.dir}/`
       }
     }
 
@@ -107,7 +98,7 @@ exports.createPages = ({ actions, graphql }) => {
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`,
         ),
         // additional data can be passed via context
         context: {

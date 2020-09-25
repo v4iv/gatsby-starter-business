@@ -2,10 +2,10 @@ import React from 'react'
 import Content from '../Content'
 import { kebabCase } from 'lodash'
 import { Link } from 'gatsby'
-import ProgressiveImageContainer from "../ProgressiveImageContainer";
+import ProgressiveImageContainer from '../ProgressiveImageContainer'
 
 const ArticleTemplate = (props) => {
-  const { content, contentComponent, cover, meta_title, meta_desc, tags, title, } = props
+  const { content, contentComponent, cover, tags, title } = props
   const PostContent = contentComponent || Content
 
   return (

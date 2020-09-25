@@ -17,10 +17,6 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -32,20 +28,25 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        path: `${__dirname}/static/img`,
+        name: 'images',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         path: `${__dirname}/src/pages`,
         name: 'pages',
       },
     },
     {
       resolve: `gatsby-plugin-sitemap`,
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/img`,
-        name: 'images',
+        exclude: [`/tags`, `/tags/*`, `/success`],
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -65,18 +66,13 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        stylesPath: `${__dirname}/src/assets/sass/styles.sass`,
-        enableIdentityWidget: true,
-        htmlTitle: `Gatsby Starter Business Content Manager`,
-      },
-    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -153,7 +149,7 @@ module.exports = {
               const rssMetadata = ctx.query.site.siteMetadata.rssMetadata
               return ctx.query.allMarkdownRemark.edges
                 .filter(
-                  edge => edge.node.frontmatter.templateKey === 'article-page'
+                  edge => edge.node.frontmatter.templateKey === 'article-page',
                 )
                 .map(edge => ({
                   categories: edge.node.frontmatter.tags,
@@ -215,6 +211,15 @@ module.exports = {
             templateKey: node => node.frontmatter.templateKey,
           },
         },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        stylesPath: `${__dirname}/src/assets/sass/styles.sass`,
+        enableIdentityWidget: true,
+        htmlTitle: `Gatsby Starter Business Content Manager`,
       },
     },
     {

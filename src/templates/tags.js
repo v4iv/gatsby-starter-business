@@ -4,7 +4,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 
 const TagRoute = (props) => {
-  const { data: { allMarkdownRemark: { edges: posts, totalCount }, site: { siteMetadata: { title }, }, }, pageContext: { tag }, } = props
+  const { data: { allMarkdownRemark: { edges: posts, totalCount }, site: { siteMetadata: { title } } }, pageContext: { tag } } = props
 
   const postLinks = posts.map(post => (
     <li key={post.node.fields.slug}>

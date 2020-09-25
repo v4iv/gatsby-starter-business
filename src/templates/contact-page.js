@@ -5,7 +5,7 @@ import ContactPageTemplate from '../components/ContactPageTemplate'
 import Layout from '../components/Layout'
 
 const ContactPage = (props) => {
-  const { data: { markdownRemark: { frontmatter: {title, subtitle, meta_title, meta_description} } } } = props
+  const { data: { markdownRemark: { frontmatter: { title, subtitle, meta_title, meta_description } } } } = props
 
   return (
     <Layout>

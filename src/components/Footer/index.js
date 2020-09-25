@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = (props) => {
-  const {copyright} = props
+  const { copyright } = props
 
   return (
     <footer className='footer'>

@@ -7,7 +7,7 @@ const Pricing = (props) => {
   return (
     <div className='columns'>
       {data.map(price => (
-        <div key={price.plan} className='column' style={{ border: "1px solid #eaecee" }}>
+        <div key={price.plan} className='column' style={{ border: '1px solid #eaecee' }}>
           <section className='section'>
             <h4 className='has-text-centered has-text-weight-semibold'>
               {price.plan}
@@ -27,7 +27,7 @@ const Pricing = (props) => {
         </div>
       ))}
     </div>
-  );
+  )
 }
 
 Pricing.propTypes = {
@@ -37,7 +37,7 @@ Pricing.propTypes = {
       price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       description: PropTypes.string,
       items: PropTypes.array,
-    })
+    }),
   ),
 }
 

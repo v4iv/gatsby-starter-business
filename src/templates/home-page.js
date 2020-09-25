@@ -5,7 +5,7 @@ import HomePageTemplate from '../components/HomePageTemplate'
 import Layout from '../components/Layout'
 
 const HomePage = (props) => {
-  const { data: { markdownRemark: { frontmatter: {title, meta_title, meta_description, heading, description, offerings, testimonials} } } } = props
+  const { data: { markdownRemark: { frontmatter: { title, meta_title, meta_description, heading, description, offerings, testimonials } } } } = props
 
   return (
     <Layout>
