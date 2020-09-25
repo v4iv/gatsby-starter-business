@@ -1,44 +1,24 @@
-import React, { Component } from 'react'
+import React from 'react'
 import ReactDisqusComments from 'react-disqus-comments'
-import config from '../../../config'
 
-class Disqus extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      toasts: [],
-    }
-    this.notifyAboutComment = this.notifyAboutComment.bind(this)
-    this.onSnackbarDismiss = this.onSnackbarDismiss.bind(this)
+const Disqus = (props) => {
+  const { title, slug, siteUrl, disqusShortname } = props
+
+  if (!disqusShortname) {
+    return null
   }
 
-  onSnackbarDismiss () {
-    const [, ...toasts] = this.state.toasts
-    this.setState({ toasts })
-  }
+  const url = siteUrl + slug
 
-  notifyAboutComment () {
-    const toasts = this.state.toasts.slice()
-    toasts.push({ text: 'New comment available!' })
-    this.setState({ toasts })
-  }
-
-  render () {
-    const { title, slug } = this.props
-    if (!config.disqusShortname) {
-      return null
-    }
-    const url = config.siteUrl + config.pathPrefix + slug
-    return (
-      <ReactDisqusComments
-        shortname={config.disqusShortname}
-        identifier={title}
-        title={title}
-        url={url}
-        onNewComment={this.notifyAboutComment}
-      />
-    )
-  }
+  return <div>
+    <ReactDisqusComments
+      shortname={disqusShortname}
+      identifier={title}
+      title={title}
+      url={url}
+      onNewComment={comment => console.log('New Comment Available!:\n', comment.text)}
+    />
+  </div>
 }
 
 export default Disqus

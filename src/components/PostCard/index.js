@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
-const PostCard = ({ posts }) => {
+const PostCard = (props) => {
+  const { posts } = props
+
   return (
     <div className='container'>
       {posts
@@ -24,7 +26,7 @@ const PostCard = ({ posts }) => {
               <br />
               <br />
               <Link className='button is-small' to={post.fields.slug}>
-                                Keep Reading →
+                Keep Reading →
               </Link>
             </p>
           </div>

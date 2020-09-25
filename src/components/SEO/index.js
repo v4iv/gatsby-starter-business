@@ -1,11 +1,11 @@
 import React from 'react'
-import config from '../../../config'
 import Helmet from 'react-helmet'
 
-const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
-  const postURL = config.siteUrl + slug
-  const realPrefix = config.pathPrefix === '/' ? '' : config.pathPrefix
-  const image = config.siteUrl + realPrefix + cover
+const SE0 = (props) => {
+  const { title, meta_title, meta_desc, cover, slug, date, siteTitleAlt, userName, siteTitle, siteUrl, siteFBAppID, userTwitter, pathPrefix } = props
+  const postURL = siteUrl + slug
+  const realPrefix = pathPrefix === '/' ? '' : pathPrefix
+  const image = siteUrl + realPrefix + cover
 
   const breadcrumbSchemaOrgJSONLD = {
     '@context': 'http://schema.org',
@@ -15,9 +15,9 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
         '@type': 'ListItem',
         position: 1,
         item: {
-          '@id': config.siteUrl,
+          '@id': siteUrl,
           name: 'Home',
-          image: config.siteUrl + '/icons/icon-512x512.png',
+          image: siteUrl + '/icons/icon-512x512.png',
         },
       },
       {
@@ -37,7 +37,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
     '@type': 'BlogPosting',
     url: postURL,
     name: title,
-    alternateName: config.siteTitleAlt ? config.siteTitleAlt : '',
+    alternateName: siteTitleAlt || '',
     headline: title,
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -45,7 +45,7 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
     },
     author: {
       '@type': 'Person',
-      name: config.userName,
+      name: userName,
     },
     image: {
       '@type': 'ImageObject',
@@ -55,10 +55,10 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
     dateModified: date,
     publisher: {
       '@type': 'Organization',
-      name: config.siteTitle,
+      name: siteTitle,
       logo: {
         '@type': 'ImageObject',
-        url: config.siteUrl + '/icons/icon-512x512.png',
+        url: siteUrl + '/icons/icon-512x512.png',
       },
     },
     description: meta_desc,
@@ -85,13 +85,13 @@ const SE0 = ({ title, meta_title, meta_desc, cover, slug, date }) => {
       <meta property='og:image' content={image} />
       <meta
         property='fb:app_id'
-        content={config.siteFBAppID ? config.siteFBAppID : ''}
+        content={siteFBAppID || ''}
       />
       {/* Twitter Card tags */}
       <meta name='twitter:card' content='summary_large_image' />
       <meta
         name='twitter:creator'
-        content={config.userTwitter ? config.userTwitter : ''}
+        content={userTwitter || ''}
       />
       <meta name='twitter:title' content={title} />
       <meta name='twitter:description' content={meta_desc} />

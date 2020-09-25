@@ -17,16 +17,19 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`,
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/assets/img`,
+        path: `${__dirname}/static/img`,
         name: 'uploads',
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/static/img`,
+        name: 'images',
       },
     },
     {
@@ -38,14 +41,12 @@ module.exports = {
     },
     {
       resolve: `gatsby-plugin-sitemap`,
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/src/assets/img`,
-        name: 'images',
+        exclude: [`/tags`, `/tags/*`, `/success`],
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: 'gatsby-transformer-remark',
       options: {
@@ -65,17 +66,13 @@ module.exports = {
               maxWidth: 2048,
             },
           },
+          `gatsby-remark-copy-linked-files`,
+          `gatsby-remark-smartypants`,
         ],
       },
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        enableIdentityWidget: true,
-        htmlTitle: `Gatsby Starter Business Content Manager`,
-      },
-    },
+    `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-nprogress`,
       options: {
@@ -111,9 +108,15 @@ module.exports = {
             type: `image/png`,
           },
         ],
+        cache_busting_mode: 'none',
       },
     },
-    `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-offline`,
+      options: {
+        precachePages: [`/blog/*`, `/about`, `/pricing`, `/contact`, `/`],
+      },
+    },
     {
       resolve: 'gatsby-plugin-feed',
       options: {
@@ -146,12 +149,13 @@ module.exports = {
               const rssMetadata = ctx.query.site.siteMetadata.rssMetadata
               return ctx.query.allMarkdownRemark.edges
                 .filter(
-                  edge => edge.node.frontmatter.templateKey === 'article-page'
+                  edge => edge.node.frontmatter.templateKey === 'article-page',
                 )
                 .map(edge => ({
                   categories: edge.node.frontmatter.tags,
                   date: edge.node.frontmatter.date,
                   title: edge.node.frontmatter.title,
+                  image: edge.node.frontmatter.cover,
                   description: edge.node.excerpt,
                   author: rssMetadata.author,
                   url: rssMetadata.site_url + edge.node.fields.slug,
@@ -174,7 +178,9 @@ module.exports = {
                             frontmatter {
                               title
                               templateKey
-                              cover
+                              cover {
+                                publicURL
+                              }
                               date(formatString: "MMMM DD, YYYY")
                               tags
                             }
@@ -193,18 +199,51 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`title`, `tags`],
+        fields: [`title`, `tags`, `author`, `slug`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type MarkdownRemark, list how to resolve the fields` values
           MarkdownRemark: {
             title: node => node.frontmatter.title,
+            author: node => node.frontmatter.author,
             tags: node => node.frontmatter.tags,
             slug: node => node.fields.slug,
+            templateKey: node => node.frontmatter.templateKey,
           },
         },
       },
     },
-    `gatsby-plugin-netlify`,
+    {
+      resolve: 'gatsby-plugin-netlify-cms',
+      options: {
+        modulePath: `${__dirname}/src/cms/cms.js`,
+        stylesPath: `${__dirname}/src/assets/sass/styles.sass`,
+        enableIdentityWidget: true,
+        htmlTitle: `Gatsby Starter Business Content Manager`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        mergeSecurityHeaders: false,
+        headers: {
+          '/*.js': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/*.css': [
+            'cache-control: public, max-age=31536000, immutable',
+          ],
+          '/sw.js': [
+            'cache-control: public, max-age=0, must-revalidate',
+          ],
+          '/*': [
+            `X-Frame-Options: DENY`,
+            `X-XSS-Protection: 1; mode=block`,
+            `X-Content-Type-Options: nosniff`,
+            `Referrer-Policy: no-referrer-when-downgrade`,
+          ],
+        },
+      },
+    },
   ],
 }
