@@ -1,6 +1,6 @@
 import React from 'react'
 import { Formik, Field } from 'formik'
-import { navigate } from 'gatsby-link'
+import { navigate } from 'gatsby'
 import validationSchema from './validationSchema'
 
 const encode = (data) => {
